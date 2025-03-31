@@ -1,4 +1,4 @@
-import { Redirect, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import {
   IonApp,
   IonIcon,
@@ -11,9 +11,9 @@ import {
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { ellipse, square, triangle } from "ionicons/icons";
-import Tab1 from "./pages/Tab1";
-import Tab2 from "./pages/Tab2";
-import Tab3 from "./pages/Tab3";
+import Explore from "./pages/Explore";
+import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
 import Main from "./pages/MainPage";
 
 /* Core CSS required for Ionic components to work properly */
@@ -55,29 +55,29 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
+          <Route exact path="/explore">
+            <Explore />
           </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
+          <Route exact path="/profile">
+            <Profile />
           </Route>
-          <Route path="/tab3">
-            <Tab3 />
+          <Route path="/settings">
+            <Settings />
           </Route>
           <Route exact path="/" component={Main} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
+          <IonTabButton tab="explore" href="/explore">
             <IonIcon aria-hidden="true" icon={triangle} />
             <IonLabel>Explore</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
+          <IonTabButton tab="profile" href="/profile">
             <IonIcon aria-hidden="true" icon={ellipse} />
             <IonLabel>Profile</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
+          <IonTabButton tab="settings" href="/settings">
             <IonIcon aria-hidden="true" icon={square} />
             <IonLabel>Settings</IonLabel>
           </IonTabButton>

@@ -7,15 +7,21 @@ import {
   IonInput,
   IonButton,
 } from "@ionic/react";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./Register.css";
+import { registerUser } from "../firebaseConfig";
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const registerUser = () => {
+  const register = async () => {
     console.log(username, password);
+    if (username.trim() === "" || password.trim() === "") return;
+
+    const res = await registerUser(username, password);
+    console.log(res);
   };
 
   return (
@@ -46,10 +52,13 @@ const Register = () => {
           <IonButton
             expand="full"
             className="register-button"
-            onClick={registerUser}
+            onClick={register}
           >
             Register
           </IonButton>
+          <p>
+            Already registered? <Link to="/login">Login</Link>
+          </p>
         </div>
       </IonContent>
     </IonPage>
